@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".activities.log.LogsActivity"
     android:background="?attr/colorBackground">
 
     <LinearLayout
@@ -59,7 +58,6 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/log_empty"
-                android:fontFamily="@font/bold"
                 android:textColor="?attr/colorSecondaryText"
                 android:textSize="16sp"/>
 
@@ -76,7 +74,6 @@
         android:textSize="14sp"
         android:textAlignment="center"
         android:text="@string/log_button_manage"
-        app:icon="@drawable/icon_settings"
         android:textAllCaps="false"
         app:backgroundTint="?attr/colorPrimary"
         android:layout_gravity="center_horizontal|bottom"

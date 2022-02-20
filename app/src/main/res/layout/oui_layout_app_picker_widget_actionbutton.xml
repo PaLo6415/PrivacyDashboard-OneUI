@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content" android:layout_height="fill_parent" android:gravity="center_vertical" tools:viewBindingIgnore="true">
+    <View
+        android:layout_width="2.0px" android:layout_height="22.0dip" android:gravity="start" android:background="@color/sesl_list_divider_color" />
+    <ImageButton
+        android:id="@+id/image_button" android:layout_width="wrap_content" android:layout_height="fill_parent" android:gravity="center" android:src="@drawable/oui_app_picker_ic_setting" style="?android:actionModeCloseButtonStyle" />
+</LinearLayout>

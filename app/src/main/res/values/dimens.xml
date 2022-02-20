@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- OneUI -->
+    <dimen name="oui_permission_content_padding_horizontal">24.0dip</dimen>
+
+    <dimen name="oui_permission_footer_padding_vertical">24.0dip</dimen>
+    <dimen name="oui_permission_button_min_width">180.0dip</dimen>
+    <dimen name="oui_permission_button_min_height">44.0dip</dimen>
+    <dimen name="oui_permission_button_button_radius">22.0dip</dimen>
+    <dimen name="oui_permission_button_text_size">15.0sp</dimen>
+
+    <dimen name="oui_tipcard_layout_padding_top">20.0dip</dimen>
+    <dimen name="oui_tipcard_layout_padding_bottom">14.0dip</dimen>
+
+    <dimen name="oui_permissioncardview_item_padding_vertical">14.0dip</dimen>
+
+    <dimen name="oui_permission_graph_height">100.0dip</dimen>
+    <dimen name="oui_permission_usage_item_icon_size">24.0dip</dimen>
+    <dimen name="oui_permission_usage_item_bar_height">16.0dip</dimen>
+
+    <dimen name="oui_cardview_divider_height">@dimen/sesl_list_divider_height</dimen>
+    <dimen name="oui_cardview_icon_divider_margin_end">24.0dip</dimen>
+    <dimen name="oui_cardview_divider_margin_start_end">@dimen/sesl_list_divider_inset</dimen>
+    <dimen name="oui_cardview_padding_vertical">14.0dip</dimen>
+    <dimen name="oui_cardview_padding_start">20.0dip</dimen>
+    <dimen name="oui_cardview_icon_size">28.0dip</dimen>
+    <dimen name="oui_cardview_icon_margin_end">16.0dip</dimen>
+
+    <dimen name="oui_aboutpage_app_name_text_size">38.0sp</dimen>
+    <dimen name="oui_aboutpage_oneui_text_size">26.0sp</dimen>
+    <dimen name="oui_aboutpage_secondary_text_size">14.0sp</dimen>
+    <dimen name="oui_aboutpage_button_text_size">17.0sp</dimen>
+
+    <dimen name="oui_unclickablepref_text_padding_start_end">24.0dip</dimen>
+    <dimen name="oui_unclickablepref_first_margin_bottom">20.0dip</dimen>
+    <dimen name="oui_unclickablepref_first_margin_top">0.0dip</dimen>
+    <dimen name="oui_unclickablepref_margin_bottom">20.0dip</dimen>
+    <dimen name="oui_unclickablepref_margin_top">20.0dip</dimen>
+    <dimen name="oui_unclickablepref_subheader_margin_bottom">20.0dip</dimen>
+    <dimen name="oui_unclickablepref_subheader_margin_top">6.0dip</dimen>
+
+    <dimen name="oui_app_picker_list_icon_frame_width">56.0dip</dimen>
+    <dimen name="oui_app_picker_list_radio_padding_start">18.0dip</dimen>
+    <dimen name="oui_app_picker_list_radio_padding_end">24.0dip</dimen>
+</resources>

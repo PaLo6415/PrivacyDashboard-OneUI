@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?attr/listPreferredItemHeight" android:paddingStart="24.0dip" android:paddingEnd="24.0dip" android:background="?attr/listChoiceBackgroundIndicator" tools:viewBindingIgnore="true">
+    <LinearLayout
+        android:id="@+id/left_frame" android:layout_width="50.0dip" android:layout_height="fill_parent" android:gravity="start|center" android:orientation="horizontal" android:importantForAccessibility="no" android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@id/icon_frame" android:layout_width="56.0dip" android:layout_height="fill_parent" android:gravity="start|center" android:importantForAccessibility="no">
+        <ImageView
+            android:id="@id/icon" android:layout_width="36.0dip" android:layout_height="36.0dip" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:baselineAligned="false">
+        <LinearLayout
+            android:id="@+id/title_frame" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingTop="14.0dip" android:paddingBottom="14.0dip" android:layout_gravity="center_vertical" android:orientation="vertical">
+            <TextView
+                android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAppearance="?attr/textAppearanceListItem" android:fadingEdge="horizontal" android:ellipsize="end" />
+            <TextView
+                android:id="@+id/summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textColor="?android:attr/textColorSecondary" android:textAppearance="?android:attr/textAppearanceListItemSecondary" android:textAlignment="viewStart" android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:gravity="center_vertical" android:orientation="horizontal" android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingHorizontal="@dimen/sesl_dialog_padding" android:orientation="vertical" tools:viewBindingIgnore="true">
+    <LinearLayout
+        android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingBottom="4.0dip" android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/icon" android:layout_width="24.0dip" android:layout_height="24.0dip" />
+        <TextView
+            android:id="@+id/subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="4.0dip" android:gravity="center_vertical" android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/sesl_dialog_title_text_color" android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sesl_dialog_title_padding_top" android:textSize="14.0sp" android:textStyle="normal" android:textColor="@color/sesl_description_text_color" android:lineSpacingExtra="9.0sp" android:fontFamily="sans-serif" />
+</LinearLayout>

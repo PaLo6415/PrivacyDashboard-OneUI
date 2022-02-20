@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72.0dip" android:height="72.0dip" android:viewportWidth="72.0" android:viewportHeight="72.0">
+    <path
+        android:fillColor="@color/oui_icon_location_color" android:pathData="M36,39.5c-5,0 -9,-4 -9,-9c0,-5 4,-9 9,-9c5,0 9,4 9,9C45,35.5 41,39.5 36,39.5M36,9.1c-11.9,0 -21.6,9.7 -21.6,21.6c0,8.3 6.3,15.2 6.5,15.5l11.7,15.1c1.8,2.1 5,2.1 6.8,0l11.7,-15.1c0.3,-0.3 6.6,-7.3 6.6,-15.5C57.6,18.8 47.9,9.1 36,9.1" />
+</vector>

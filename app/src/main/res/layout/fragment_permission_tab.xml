@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="?attr/roundedCornerColor">
+    <de.dlyt.yanndroid.oneui.view.RecyclerView
+        android:id="@+id/tab_recycler_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@color/item_background_color" android:scrollbars="vertical" />
+    <de.dlyt.yanndroid.oneui.widget.ProgressBar
+        android:id="@+id/tab_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone" style="?android:attr/progressBarStyleLarge"/>
+</FrameLayout>

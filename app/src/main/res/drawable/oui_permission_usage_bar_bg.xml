@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" android:color="?android:attr/colorControlHighlight">
+    <solid android:color="@color/oui_permission_chart_item_bar_color" />
+    <corners android:radius="4.0dip" />
+</shape>

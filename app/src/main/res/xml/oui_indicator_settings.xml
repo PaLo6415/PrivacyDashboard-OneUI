@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LayoutPreference
+        android:key="preview" android:layout="@layout/oui_view_settings_privacy_dots_preview" android:selectable="false"/>
+
+    <InsetPreferenceCategory
+        android:key="category_0" app:height="1.0px">
+        <ColorPickerPreference
+            android:key="privacy.dots.color" android:title="@string/oui_settings_privacy_dots_color_title" android:defaultValue="#54BB64" app:pickerType="detailed" />
+        <ListPreference
+            android:key="privacy.dots.position" android:title="@string/oui_settings_privacy_dots_position_title" android:entries="@array/privacy_dots_position_pref_entries" android:entryValues="@array/privacy_dots_position_pref_values" android:defaultValue="8388661" />
+        <rk.android.app.privacydashboard.preference.SeekBarPreferenceWithBtns
+            android:key="privacy.dots.size" android:title="@string/oui_settings_privacy_dots_size_title" app:min="1" app:max="6" android:defaultValue="4" app:updatesContinuously="true" app:showTickMark="true" />
+        <rk.android.app.privacydashboard.preference.SeekBarPreferenceWithBtns
+            android:key="privacy.dots.opacity" android:title="@string/oui_settings_privacy_dots_opacity_title" app:min="0" app:max="100" android:defaultValue="100" app:updatesContinuously="true" app:showSeekBarValue="true" app:units="@string/oui_settings_privacy_dots_size_unit" />
+    </InsetPreferenceCategory>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory
+        android:key="category_1">
+        <SwitchPreferenceCompat
+            android:key="privacy.dots.hide" android:title="@string/oui_settings_privacy_dots_hide_title" android:defaultValue="false" />
+        <rk.android.app.privacydashboard.preference.SeekBarPreferenceWithBtns
+            android:key="privacy.dots.hide.timer" android:title="@string/oui_settings_privacy_dots_hide_timer_title" app:min="1" app:max="15" android:defaultValue="6" app:showSeekBarValue="true" app:units="@string/oui_settings_privacy_dots_hide_timer_unit" />
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory
+        android:key="category_2">
+        <SwitchPreferenceCompat
+            android:key="privacy.dots.auto_hide" android:title="@string/oui_settings_privacy_dots_minimize_title" android:defaultValue="false" />
+        <rk.android.app.privacydashboard.preference.SeekBarPreferenceWithBtns
+            android:key="privacy.dots.auto_hide.timer" android:title="@string/oui_settings_privacy_dots_minimize_timer_title" app:min="1" app:max="15" android:defaultValue="6" app:showSeekBarValue="true" app:units="@string/oui_settings_privacy_dots_hide_timer_unit" />
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory
+        android:key="category_3">
+        <SwitchPreferenceCompat
+            android:key="privacy.dots.margin" android:title="@string/oui_settings_privacy_dots_margin_title" android:summary="@string/oui_settings_privacy_dots_margin_summary" android:defaultValue="true" />
+        <SwitchPreferenceCompat
+            android:key="privacy.dots.click" android:title="@string/oui_settings_privacy_dots_click_title" android:summary="@string/oui_settings_privacy_dots_click_summary" android:defaultValue="false" />
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <InsetPreferenceCategory />
+
+</de.dlyt.yanndroid.oneui.preference.PreferenceScreen>

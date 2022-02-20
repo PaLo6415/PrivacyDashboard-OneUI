@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- OneUI -->
+    <color name="sesl_description_text_color">#ffe5e5e5</color>
+
+    <color name="oui_subheader_text_color">#ff999999</color>
+
+    <color name="oui_permissioncardview_item_icon_color">#ffd0d0d0</color>
+
+    <color name="oui_permission_chart_item_text_color">#ff9c9c9c</color>
+    <color name="oui_permission_chart_item_bar_color">#b34596e3</color>
+    <color name="oui_permission_chart_item_empty_bar_color">#1affffff</color>
+
+    <color name="oui_tipcard_bg_color">#ff252525</color>
+
+    <color name="oui_dashboard_view_all_text_color">#ffa9a9a9</color>
+
+    <color name="oui_aboutpage_secondary_text_color">#ff747474</color>
+    <color name="oui_aboutpage_button_bg_color">#ff1f1f1f</color>
+    <color name="oui_aboutpage_button_text_color">#fffafafa</color>
+
+    <color name="oui_unclickablepref_link_text_color">#fffafafa</color>
+    <color name="oui_seekbar_circle_marker_color">#ff808080</color>
+
+    <color name="oui_permission_detail_no_items_text_color">#ffcccccc</color>
+    <color name="oui_permission_detail_no_items_sub_text_color">#ff999999</color>
+</resources>

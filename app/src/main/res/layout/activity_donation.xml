@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".activities.donation.DonationActivity">
+    tools:context=".activity.donation.DonationActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_free"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -38,7 +38,7 @@
                     app:donation_info="@string/donation_free_info"
                     app:donation_icon="@drawable/donate_free"/>
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_support"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_tea"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -65,7 +65,7 @@
                     app:donation_icon="@drawable/donate_tea"
                     app:donation_color="?attr/colorIcon"/>
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_latte"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_movie"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -93,7 +93,7 @@
                     app:donation_icon="@drawable/donate_movie"
                     app:donation_color="?attr/colorIcon"/>
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_dinner"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_ad_free"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -120,7 +120,7 @@
                     app:donation_icon="@drawable/donate_ads"
                     app:donation_color="?attr/colorIcon"/>
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_create_apps"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -137,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <rk.android.app.privacydashboard.views.DonationView
+                <rk.android.app.privacydashboard.view.DonationView
                     android:id="@+id/donation_super"
                     android:layout_width="0dp"
                     android:layout_weight="1"

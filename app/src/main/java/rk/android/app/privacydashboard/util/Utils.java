@@ -1,8 +1,6 @@
 package rk.android.app.privacydashboard.util;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.ComponentName;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -12,14 +10,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.util.TypedValue;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
@@ -27,117 +24,76 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import rk.android.app.privacydashboard.BuildConfig;
 import rk.android.app.privacydashboard.R;
-import rk.android.app.privacydashboard.activities.appinfo.AppInfoActivity;
-import rk.android.app.privacydashboard.activities.log.LogsActivity;
-import rk.android.app.privacydashboard.constant.Constants;
-import rk.android.app.privacydashboard.manager.PreferenceManager;
+import rk.android.app.privacydashboard.activity.appinfo.OldAppInfoActivity;
+import rk.android.app.privacydashboard.activity.permission.PermissionDetailActivity;
 
 public class Utils {
 
     public static void openHistoryActivity(Context context, String permission) {
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
-        Intent i = new Intent(context, LogsActivity.class);
-        i.putExtra(Constants.EXTRA_PERMISSION,permission);
-        context.startActivity(i, bundle);
+        Intent i = new Intent(context, PermissionDetailActivity.class);
+        i.putExtra(Constants.EXTRA_PERMISSION, permission);
+        context.startActivity(i);
     }
 
     public static void openAppInfoActivity(Context context, String packageName) {
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
-        Intent i = new Intent(context, AppInfoActivity.class);
-        i.putExtra(Constants.EXTRA_APP,packageName);
-        context.startActivity(i, bundle);
+        Intent i = new Intent(context, OldAppInfoActivity.class);
+        i.putExtra(Constants.EXTRA_APP, packageName);
+        context.startActivity(i);
+    }
+
+    public static void openAppPermissionsActivity(Context context, String packageName) {
+        try {
+            Intent intent = new Intent("android.intent.action.MANAGE_APP_PERMISSIONS");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("android.intent.extra.PACKAGE_NAME", packageName);
+            intent.putExtra("hideInfoButton", true);
+            context.startActivity(intent);
+        } catch (SecurityException e) {
+            context.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.fromParts("package", packageName, null)));
+        }
     }
 
     public static void openPrivacySettings(Context context) {
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
-        Intent intent;
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            intent = new Intent(Settings.ACTION_PRIVACY_SETTINGS);
-        }else {
-            intent = new Intent(Intent.ACTION_MAIN)
-                    .setComponent(new ComponentName("com.android.settings",
-                            "com.android.settings.Settings$AppAndNotificationDashboardActivity"));
-        }
-
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            try {
-                context.startActivity(intent, bundle);
-            }catch (Exception ignored){
-                context.startActivity(new Intent(Settings.ACTION_SETTINGS));
-            }
+        try {
+            context.startActivity(new Intent("android.intent.action.MANAGE_PERMISSIONS"));
+        } catch (SecurityException e) {
+            context.startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS));
         }
     }
 
     public static void openPermissionLog(Context context, String permission){
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
-        Intent i = new Intent(context, LogsActivity.class);
+        Intent i = new Intent(context, PermissionDetailActivity.class);
         i.putExtra(Constants.EXTRA_PERMISSION,permission);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(i, bundle);
+        context.startActivity(i);
     }
 
     public static void openAppSettings(Context context, String packageName){
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + packageName));
-        context.startActivity(intent, bundle);
+        context.startActivity(intent);
     }
 
     public static void openLink(Context context, String url) {
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        context.startActivity(i, bundle);
-    }
-
-    public static void sendEmail(Context context){
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("content://"));
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.DEV_MAIL});
-        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name) + ":" + BuildConfig.VERSION_NAME);
-        intent.putExtra(Intent.EXTRA_TEXT,"");
         try {
-            context.startActivity(intent);
-        }catch (Exception e){
-            System.out.println(e.toString());
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            context.startActivity(i);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, "No suitable activity found", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public static String getTheme(Context context){
-        switch (AppCompatDelegate.getDefaultNightMode()) {
-            case AppCompatDelegate.MODE_NIGHT_YES:
-                return context.getString(R.string.dialog_theme_dark);
-
-            case AppCompatDelegate.MODE_NIGHT_NO:
-                return context.getString(R.string.dialog_theme_light);
-
-            case AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY:
-                return context.getString(R.string.dialog_theme_battery);
-
-            default:
-            case AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM:
-            case AppCompatDelegate.MODE_NIGHT_UNSPECIFIED:
-                return context.getString(R.string.dialog_theme_system);
-
-        }
-    }
-
-    public static void setTheme(Context context, PreferenceManager preferenceManager, int mode, Class<?> cls){
-        preferenceManager.setNightMode(mode);
+    public static void setTheme(AppCompatActivity activity, int mode) {
         AppCompatDelegate.setDefaultNightMode(mode);
-        Bundle bundle = ActivityOptions.makeCustomAnimation(context,
-                        android.R.anim.fade_in,android.R.anim.fade_out).toBundle();
-        Intent intent = new Intent(context, cls);
-        ((Activity) context).finish();
-        context.startActivity(intent,bundle);
+        activity.getDelegate().applyDayNight();
     }
 
-    public static int getAttrColor(Context context, int attr){
+    public static int getAttrColor(Context context, int attr) {
         TypedValue typedValue = new TypedValue();
         context.getTheme().resolveAttribute(attr, typedValue, true);
-        return ContextCompat.getColor(context, typedValue.resourceId);
+        return typedValue.data;
     }
 
     public static String getTimeFromTimestamp(Context context, long timestamp){
@@ -203,34 +159,11 @@ public class Utils {
         return ResourcesCompat.getDrawable(context.getResources(),R.mipmap.ic_launcher,context.getTheme());
     }
 
-    public static void openAutoStartAccordingToManufacturer(Context context) {
-        try {
-            Intent intent = new Intent();
-            String manufacturer = android.os.Build.MANUFACTURER;
-            if ("xiaomi".equalsIgnoreCase(manufacturer)) {
-                intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
-            } else if ("oppo".equalsIgnoreCase(manufacturer)) {
-                intent.setComponent(new ComponentName("com.coloros.safecenter", "com.coloros.safecenter.permission.startup.StartupAppListActivity"));
-            } else if ("vivo".equalsIgnoreCase(manufacturer)) {
-                intent.setComponent(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"));
-            } else if ("Honor".equalsIgnoreCase(manufacturer)) {
-                intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity"));
-            }
-
-            List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-            if (list.size() > 0) {
-                context.startActivity(intent);
-            }
-        } catch (Exception e) {
-            android.util.Log.i("UTILS", "openAutoStartAccordingToManufacturer: " + e.getMessage());
-        }
-    }
-
     public static float getDensity(Context context) {
         return context.getResources().getDisplayMetrics().density;
     }
 
-    public static List<String> getSystemApps(Context context){
+    public static List<String> getSystemApps(Context context) {
 
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <rk.android.app.privacydashboard.preference.UnclickablePreference
+        android:key="subheader" android:title="@string/oui_settings_notification_subheader" app:positionMode="first_item" />
+
+    <InsetPreferenceCategory
+        android:key="category_0" app:height="1.0px">
+        <SwitchPreferenceCompat
+            android:key="privacy.notification.ongoing" android:title="@string/oui_settings_notification_ongoing_title" android:summary="@string/oui_settings_notification_ongoing_summary" android:defaultValue="true" />
+        <SwitchPreferenceCompat
+            android:key="privacy.notification.icon" android:title="@string/oui_settings_notification_icon_title" android:summary="@string/oui_settings_notification_icon_summary" android:defaultValue="true" />
+        <SwitchPreferenceCompat
+            android:key="privacy.notification.click" android:title="@string/oui_settings_notification_click_title" android:summary="@string/oui_settings_notification_click_summary" android:defaultValue="false" />
+    </InsetPreferenceCategory>
+
+    <InsetPreferenceCategory />
+
+    <Preference
+        android:key="privacy.notification.more" android:title="@string/oui_settings_other_notifs_title" />
+
+    <InsetPreferenceCategory />
+
+</de.dlyt.yanndroid.oneui.preference.PreferenceScreen>

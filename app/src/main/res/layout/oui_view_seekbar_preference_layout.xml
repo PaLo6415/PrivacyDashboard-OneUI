@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?listPreferredItemHeight" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" android:gravity="center_vertical" tools:viewBindingIgnore="false">
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_height="fill_parent" android:gravity="center" android:orientation="horizontal">
+        <de.dlyt.yanndroid.oneui.preference.internal.PreferenceImageView
+            android:id="@android:id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingTop="@dimen/sesl_preference_item_padding_vertical" android:paddingBottom="@dimen/sesl_preference_item_padding_vertical">
+        <TextView
+            android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="marquee" android:fadingEdge="horizontal" android:singleLine="true" android:textAppearance="?textAppearanceListItem" />
+        <TextView
+            android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="6.0dip" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" android:maxLines="4" android:textAppearance="?android:textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/seekbar_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@android:id/summary" android:gravity="center_horizontal" android:singleLine="true" android:textColor="?colorPrimaryDark" android:textAppearance="?android:textAppearanceListItemSecondary" android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/seekbar_value" android:layout_alignParentEnd="true" android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/delete_button" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_gravity="center_vertical" android:background="@drawable/oui_seekbarpref_button_bg" android:src="@drawable/ic_samsung_minus" app:tint="@color/sesl_functional_red" android:scaleType="center" />
+            <rk.android.app.privacydashboard.widget.FixedSeekBar
+                android:id="@id/seekbar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:minHeight="32.0dip" android:layout_gravity="center_vertical" />
+            <ImageView
+                android:id="@+id/add_button" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_gravity="center_vertical" android:background="@drawable/oui_seekbarpref_button_bg" android:src="@drawable/ic_samsung_plus" app:tint="@color/sesl_functional_green" android:scaleType="center" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

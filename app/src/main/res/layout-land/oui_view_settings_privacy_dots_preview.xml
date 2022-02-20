@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="?attr/roundedCornerColor" tools:viewBindingIgnore="false">
+    <de.dlyt.yanndroid.oneui.widget.RoundFrameLayout
+        android:layout_width="0.0dip" android:layout_height="120.0dip" android:layout_weight="4.0" android:layout_marginBottom="@dimen/sesl_list_subheader_min_height" android:background="@color/item_background_color">
+        <LinearLayout
+            android:id="@+id/dots_overlay_preview" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_gravity="center" android:gravity="center_vertical" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/icon_camera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="2.0dip" />
+            <ImageView
+                android:id="@+id/icon_microphone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="5.0dip" />
+            <ImageView
+                android:id="@+id/icon_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="5.0dip" />
+            <ImageView
+                android:id="@+id/icon_dot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/indicator_dot" android:visibility="gone"/>
+        </LinearLayout>
+    </de.dlyt.yanndroid.oneui.widget.RoundFrameLayout>
+
+    <TextView
+        android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="6.0" android:layout_marginBottom="@dimen/sesl_list_subheader_min_height" android:paddingStart="@dimen/oui_unclickablepref_text_padding_start_end" android:paddingTop="@dimen/oui_unclickablepref_margin_top" android:paddingEnd="@dimen/oui_unclickablepref_text_padding_start_end" android:paddingBottom="@dimen/oui_unclickablepref_margin_bottom" android:text="@string/oui_settings_privacy_dots_subheader" style="@style/OneUi.UnclickablePrefTextStyle" />
+</LinearLayout>

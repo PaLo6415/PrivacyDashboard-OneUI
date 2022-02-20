@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- One UI -->
+    <declare-styleable name="PermissionCardView">
+        <attr name="IconDrawable" format="reference" />
+        <attr name="TitleText" format="string" />
+        <attr name="SummaryText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CardView">
+        <attr name="IconDrawable" />
+        <attr name="IconColor" format="color" />
+        <attr name="TitleText" />
+        <attr name="SummaryText" />
+        <attr name="isDividerViewVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SeekBarPreferenceWithBtns">
+        <attr name="showTickMark" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="UnclickablePreference">
+        <attr name="android:layout" />
+        <attr name="roundStroke" />
+        <attr name="positionMode" format="integer">
+            <flag name="first_item" value="1" />
+            <flag name="normal" value="0" />
+            <flag name="subheader_item" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+
+
+
+
+
+
 
     <declare-styleable name="AppTheme">
-        <attr name="colorPrimary" format="color"/>
-        <attr name="colorSecondary" format="color"/>
         <attr name="colorPrimaryText" format="color"/>
         <attr name="colorSecondaryText" format="color"/>
         <attr name="colorIcon" format="color"/>
         <attr name="colorBackground" format="color"/>
         <attr name="colorCardBackground" format="color"/>
-        <attr name="colorCamera" format="color"/>
-        <attr name="colorMicrophone" format="color"/>
-        <attr name="colorLocation" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="PermissionView">
@@ -30,20 +61,10 @@
         <attr name="settings_open_visibility" format="integer"/>
     </declare-styleable>
 
-    <declare-styleable name="SeekbarView">
-        <attr name="seekbar_title" format="string"/>
-        <attr name="progressUnit" format="string"/>
-        <attr name="progressMin" format="integer"/>
-        <attr name="progressMax" format="integer"/>
-        <attr name="progressDefault" format="integer"/>
-    </declare-styleable>
-
     <declare-styleable name="DonationView">
         <attr name="donation_price" format="string"/>
         <attr name="donation_info" format="string"/>
         <attr name="donation_icon" format="reference"/>
         <attr name="donation_color" format="integer"/>
     </declare-styleable>
-
-
 </resources>

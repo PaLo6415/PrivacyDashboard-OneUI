@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:expanded="false">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="?attr/roundedCornerColor" app:layout_location="main_content">
+        <FrameLayout
+            android:id="@+id/tabs_parent" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <de.dlyt.yanndroid.oneui.widget.TabLayout
+                android:id="@+id/tabs" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <de.dlyt.yanndroid.oneui.view.ViewPager2
+            android:id="@+id/viewPager" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tabs_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>

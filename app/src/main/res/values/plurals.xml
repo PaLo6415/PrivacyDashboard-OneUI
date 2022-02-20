@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="oui_ps_apps">
+        <item quantity="other">%d apps</item>
+        <item quantity="zero">%d apps</item>
+        <item quantity="one">%d app</item>
+        <item quantity="two">%d apps</item>
+        <item quantity="few">%d apps</item>
+        <item quantity="many">%d apps</item>
+    </plurals>
+
+    <plurals name="oui_used_d_times">
+        <item quantity="other">Used %d times</item>
+        <item quantity="zero">Used %d times</item>
+        <item quantity="one">Used %d time</item>
+        <item quantity="two">Used %d times</item>
+        <item quantity="few">Used %d times</item>
+        <item quantity="many">Used %d times</item>
+    </plurals>
+</resources>

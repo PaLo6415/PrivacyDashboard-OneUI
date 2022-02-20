@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="privacy_dots_position_pref_entries">
+        <item>@string/oui_settings_privacy_dots_position_tl</item>
+        <item>@string/oui_settings_privacy_dots_position_tc</item>
+        <item>@string/oui_settings_privacy_dots_position_tr</item>
+        <item>@string/oui_settings_privacy_dots_position_lc</item>
+        <item>@string/oui_settings_privacy_dots_position_rc</item>
+        <item>@string/oui_settings_privacy_dots_position_bl</item>
+        <item>@string/oui_settings_privacy_dots_position_bc</item>
+        <item>@string/oui_settings_privacy_dots_position_br</item>
+    </string-array>
+    <string-array name="privacy_dots_position_pref_values">
+        <item>8388659</item>
+        <item>49</item>
+        <item>8388661</item>
+        <item>8388627</item>
+        <item>8388629</item>
+        <item>8388691</item>
+        <item>88</item>
+        <item>8388693</item>
+    </string-array>
+
+    <string-array name="theme_pref_entries">
+        <item>@string/oui_settings_dark_mode_off</item>
+        <item>@string/oui_settings_dark_mode_on</item>
+        <item>@string/oui_settings_dark_mode_system</item>
+    </string-array>
+    <string-array name="theme_pref_values">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+</resources>

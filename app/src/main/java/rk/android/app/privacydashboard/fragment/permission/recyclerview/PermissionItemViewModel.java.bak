@@ -1,0 +1,11 @@
+package rk.android.app.privacydashboard.fragment.permission.recyclerview;
+
+import android.view.View;
+
+import androidx.databinding.ViewDataBinding;
+
+public abstract class PermissionItemViewModel extends ViewDataBinding {
+    protected PermissionItemViewModel(Object bindingComponent, View root, int localFieldCount) {
+        super(bindingComponent, root, localFieldCount);
+    }
+}

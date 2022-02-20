@@ -22,7 +22,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/image_icon"
+                android:id="@+id/logs_header_icon"
                 android:contentDescription="@string/image_descriptions"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -34,23 +34,21 @@
                 android:src="@drawable/profile_donate"/>
 
             <TextView
-                android:id="@+id/text_title"
+                android:id="@+id/logs_header_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="3dp"
-                android:layout_toEndOf="@id/image_icon"
-                android:fontFamily="@font/medium"
+                android:layout_toEndOf="@id/logs_header_icon"
                 android:textColor="?attr/colorPrimary"
                 android:text="@string/donation_free"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/text_info"
-                android:layout_below="@id/text_title"
+                android:id="@+id/logs_header_sub_title"
+                android:layout_below="@id/logs_header_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/image_icon"
-                android:fontFamily="@font/medium"
+                android:layout_toEndOf="@id/logs_header_icon"
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:text="@string/donation_free_info"

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.layout.SwitchBarLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/switch_bar_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:expanded="false">
+    <de.dlyt.yanndroid.oneui.widget.RoundFrameLayout
+        android:id="@+id/fragment_container" android:layout_width="fill_parent" android:layout_height="fill_parent" app:roundedCorners="top_left|top_right" app:layout_location="main_content"/>
+</de.dlyt.yanndroid.oneui.layout.SwitchBarLayout>

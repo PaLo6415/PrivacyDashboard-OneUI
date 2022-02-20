@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/permission_guideline" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintGuide_percent="0.5" android:orientation="vertical" android:focusable="false" />
+    <ImageView
+        android:id="@+id/permission_icon" android:layout_width="32.0dip" android:layout_height="32.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@id/permission_guideline" app:layout_constraintBottom_toTopOf="@id/permission_title" app:layout_constraintVertical_chainStyle="packed" android:src="@drawable/oui_ic_privacy" app:tint="@color/sesl_primary_text_color" />
+    <TextView
+        android:id="@+id/permission_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:paddingHorizontal="24.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/permission_icon" app:layout_constraintEnd_toStartOf="@id/permission_guideline" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_chainStyle="packed" android:text="@string/app_name" android:textSize="27.0dip" android:textColor="@color/sesl_primary_text_color" android:textAlignment="center" android:fontFamily="@string/sesl_font_family_regular" />
+
+    <LinearLayout
+        android:layout_width="0.0dip" android:layout_height="fill_parent" app:layout_constraintStart_toEndOf="@id/permission_guideline" app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.5" android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/permission_scrollview" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView
+                    android:id="@+id/permission_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginVertical="20.0dip" android:paddingHorizontal="24.0dip" android:text="@string/oui_permission_page_description" android:textSize="15.0sp" android:textColor="@color/oui_subheader_text_color" android:textAlignment="center" android:fontFamily="@string/sesl_font_family_regular" />
+
+                <de.dlyt.yanndroid.oneui.widget.RoundLinearLayout
+                    android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:orientation="vertical" app:roundedCorners="all">
+                    <rk.android.app.privacydashboard.view.PermissionCardView
+                        android:id="@+id/permission_location_card" android:layout_width="fill_parent" android:layout_height="wrap_content" app:IconDrawable="@drawable/ic_samsung_location_on" app:TitleText="@string/oui_app_permission_location_title" app:SummaryText="@string/oui_app_permission_location_summary" />
+                    <rk.android.app.privacydashboard.view.PermissionCardView
+                        android:id="@+id/permission_accessibility_card" android:layout_width="fill_parent" android:layout_height="wrap_content" app:IconDrawable="@drawable/ic_samsung_accessibility" app:TitleText="@string/oui_app_permission_accessibility_title" app:SummaryText="@string/oui_app_permission_accessibility_summary" />
+                </de.dlyt.yanndroid.oneui.widget.RoundLinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/permission_footer" android:layout_width="fill_parent" android:layout_height="72.0dip" android:layout_marginHorizontal="18.0dip" android:gravity="center_vertical" android:background="?attr/roundedCornerColor">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/permission_footer_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="@string/oui_permission_footer_button_text" style="@style/OneUi.PermissionFooterBtnStyle" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

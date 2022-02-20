@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" tools:viewBindingIgnore="false">
+    <ImageView
+        android:id="@+id/item_permission_image" android:layout_width="@dimen/oui_permission_usage_item_icon_size" android:layout_height="@dimen/oui_permission_usage_item_icon_size" android:layout_marginHorizontal="22.0dip" android:layout_marginTop="2.0dip" android:background="@drawable/oui_permission_chart_item_bg_root_ripple" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent" android:layout_height="68.0dip">
+        <TextView
+            android:id="@+id/item_permission_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:textSize="12.0sp" android:textColor="@color/oui_permission_chart_item_text_color" />
+
+        <FrameLayout
+            android:id="@+id/item_usage_bar_container" android:layout_width="fill_parent" android:layout_height="@dimen/oui_permission_usage_item_bar_height" android:layout_marginEnd="24.0dip" android:layout_below="@id/item_permission_name">
+            <LinearLayout
+                android:id="@+id/item_usage_bar_empty" android:layout_width="fill_parent" android:layout_height="@dimen/oui_permission_usage_item_bar_height" android:orientation="horizontal" android:background="@drawable/oui_permission_usage_bar_empty_bg" />
+            <LinearLayout
+                android:id="@+id/item_usage_bar" android:layout_width="fill_parent" android:layout_height="@dimen/oui_permission_usage_item_bar_height" android:orientation="horizontal" android:background="@drawable/oui_permission_usage_bar_bg" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="24.0dip" android:layout_above="@id/item_usage_bar_container" android:layout_alignParentEnd="true">
+            <TextView
+                android:id="@+id/item_usage_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end|bottom|center" android:textSize="12.0sp" android:textColor="@color/oui_permission_chart_item_text_color" />
+            <de.dlyt.yanndroid.oneui.widget.ProgressBar
+                android:id="@+id/item_progress_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </FrameLayout>
+    </RelativeLayout>
+</LinearLayout>

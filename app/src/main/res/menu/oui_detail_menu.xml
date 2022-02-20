@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/info_detail" android:icon="@drawable/ic_samsung_info_2" android:title="@string/oui_info" app:showAsAction="always" />
+    <item
+        android:id="@+id/logs_delete" android:icon="@drawable/oui_ic_delete" android:title="@string/oui_details_delete_logs" app:showAsAction="always" />
+</menu>

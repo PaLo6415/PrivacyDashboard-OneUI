@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- OneUI -->
+    <dimen name="oui_permission_footer_padding_vertical">48.0dip</dimen>
+    <dimen name="oui_permission_button_min_width">240.0dip</dimen>
+</resources>

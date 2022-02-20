@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72.0dip" android:height="72.0dip" android:viewportWidth="72.0" android:viewportHeight="72.0">
+    <path
+        android:fillColor="@color/oui_icon_microphone_color" android:pathData="M52.3,34.6l5.3,0.1c-0.2,10.8 -8.3,19.4 -18.9,20.6l0,0v10h-5.3v-10c-11.2,-1.4 -18.9,-11.5 -18.9,-20.6l0,0h5.3c0,7.4 6.7,15.6 16.3,15.6C45,50.2 52.1,43.4 52.3,34.6L52.3,34.6zM36,6.6c5.7,0 10.3,4.6 10.3,10.3l0,0l0,17.7C46.3,40.3 41.7,45 36,45c-5.7,0 -10.3,-4.6 -10.3,-10.3l0,0V17C25.7,11.3 30.3,6.6 36,6.6z" />
+</vector>

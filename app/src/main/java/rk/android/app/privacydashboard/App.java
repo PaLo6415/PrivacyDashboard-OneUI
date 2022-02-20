@@ -7,7 +7,7 @@ import android.os.Build;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import rk.android.app.privacydashboard.constant.Constants;
+import rk.android.app.privacydashboard.util.Constants;
 import rk.android.app.privacydashboard.manager.PreferenceManager;
 
 public class App extends Application {
@@ -18,12 +18,10 @@ public class App extends Application {
         AppCompatDelegate.setDefaultNightMode(new PreferenceManager(getApplicationContext()).getNightMode());
 
         createNotificationChannel();
-
     }
 
     public void createNotificationChannel(){
-
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel(Constants.NOTIFICATION_CHANNEL,
                     getString(R.string.service_name),
                     NotificationManager.IMPORTANCE_LOW);
@@ -45,6 +43,5 @@ public class App extends Application {
 
             manager.createNotificationChannel(notificationChannel);
         }
-
     }
 }

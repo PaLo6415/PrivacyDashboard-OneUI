@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- OneUI -->
+    <color name="sesl_description_text_color">#ff252525</color>
+    <color name="oui_samsung_privacy_color">#ff7ba2f1</color>
 
-    <!--Common colors-->
-    <color name="overlay_background">#61B773</color>
-    <color name="overlay_icon">#0D280C</color>
+    <color name="oui_subheader_text_color">#ff838383</color>
+
+    <color name="oui_permissioncardview_item_icon_color">#ff505050</color>
+
+    <color name="oui_icon_camera_color">#fff28072</color>
+    <color name="oui_icon_location_color">#ff71bd67</color>
+    <color name="oui_icon_microphone_color">#ff818afe</color>
+
+    <color name="oui_permission_chart_item_text_color">#ff636363</color>
+    <color name="oui_permission_chart_item_bar_color">#b50072de</color>
+    <color name="oui_permission_chart_item_empty_bar_color">#0d000000</color>
+
+    <color name="oui_tipcard_bg_color">#fffcfcfc</color>
+
+    <color name="oui_dashboard_view_all_text_color">#ff656565</color>
+
+    <color name="oui_aboutpage_secondary_text_color">#ff8c8c8c</color>
+    <color name="oui_aboutpage_button_bg_color">#ffebebeb</color>
+    <color name="oui_aboutpage_button_text_color">#ff252525</color>
+
+    <color name="oui_unclickablepref_link_text_color">#ff3b3b3b</color>
+    <color name="oui_seekbar_circle_marker_color">#ff9c9c9c</color>
+
+    <color name="oui_overlay_background_color">#54BB64</color>
+    <color name="oui_overlay_icon_tint_dark">#FAFAFA</color>
+    <color name="oui_overlay_icon_tint_light">#252525</color>
+
+    <color name="oui_permission_detail_no_items_text_color">#ff4d4d4d</color>
+    <color name="oui_permission_detail_no_items_sub_text_color">#ff8c8c8c</color>
+
+
+
+
+
+
 
     <!--Light Theme-->
     <color name="lightPrimary">#689F38</color>
@@ -14,10 +49,6 @@
     <color name="lightCardBackground">#fafafa</color>
     <color name="lightIcon">#737373</color>
 
-    <color name="lightCamera">#40C4FF</color>
-    <color name="lightMicrophone">#FFCC80</color>
-    <color name="lightLocation">#A5D6A7</color>
-
     <!--Dark Theme-->
     <color name="darkPrimary">#bef67a</color>
     <color name="darkSecondary">#ffc246</color>
@@ -26,9 +57,4 @@
     <color name="darkBackground">#000000</color>
     <color name="darkCardBackground">#3b3b3b</color>
     <color name="darkIcon">#9AA0A6</color>
-
-    <color name="darkCamera">#0288D1</color>
-    <color name="darkMicrophone">#F57C00</color>
-    <color name="darkLocation">#388E3C</color>
-
 </resources>

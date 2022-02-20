@@ -5,20 +5,20 @@
     <item
         android:id="@+id/action_exclude"
         android:title="@string/menu_exclude"
-        android:icon="@drawable/menu_exclude_off"
+        android:icon="@drawable/ic_samsung_file_type_excel"
         android:visible="false"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_delete"
         android:title="@string/menu_delete"
-        android:icon="@drawable/menu_delete"
+        android:icon="@drawable/oui_app_picker_ic_setting"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_help"
         android:title="@string/settings_limitation"
-        android:icon="@drawable/log_help"
+        android:icon="@drawable/ic_samsung_help_2"
         android:visible="false"
         app:showAsAction="ifRoom"/>
 

@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
 import android.content.res.ColorStateList;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.GradientDrawable;
 import android.hardware.camera2.CameraManager;
 import android.location.GnssStatus;
 import android.location.LocationManager;
@@ -22,6 +23,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Animation;
@@ -34,16 +36,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import rk.android.app.privacydashboard.BuildConfig;
 import rk.android.app.privacydashboard.R;
-import rk.android.app.privacydashboard.activities.appinfo.AppInfoActivity;
-import rk.android.app.privacydashboard.activities.log.database.LogsRepository;
-import rk.android.app.privacydashboard.activities.settings.excluded.database.ExcludedRepository;
-import rk.android.app.privacydashboard.constant.Constants;
+import rk.android.app.privacydashboard.activity.appinfo.OldAppInfoActivity;
+import rk.android.app.privacydashboard.activity.permission.log.database.LogsRepository;
+import rk.android.app.privacydashboard.activity.settings.excluded.database.ExcludedRepository;
+import rk.android.app.privacydashboard.util.Constants;
 import rk.android.app.privacydashboard.manager.PreferenceManager;
 import rk.android.app.privacydashboard.model.Logs;
 import rk.android.app.privacydashboard.util.Utils;
@@ -51,7 +55,6 @@ import rk.android.app.privacydashboard.util.Utils;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 
 public class PrivacyService extends AccessibilityService {
-
     private static final String TAG = "PrivacyService";
 
     LogsRepository repository;
@@ -78,6 +81,7 @@ public class PrivacyService extends AccessibilityService {
     NotificationManagerCompat notificationManager;
     NotificationCompat.Builder notificationCompatBuilder;
 
+    Integer runningAppId = null;
     String runningAppPackage = BuildConfig.APPLICATION_ID;
     String lastAppPackage = BuildConfig.APPLICATION_ID;
 
@@ -95,20 +99,18 @@ public class PrivacyService extends AccessibilityService {
             Intent notificationIntent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                     .putExtra(Settings.EXTRA_APP_PACKAGE,BuildConfig.APPLICATION_ID)
                     .putExtra(Settings.EXTRA_CHANNEL_ID,Constants.NOTIFICATION_CHANNEL);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
             Notification notification = new NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL)
+                    .setSmallIcon(R.drawable.oui_ic_privacy)
+                    .setColor(getColor(R.color.oui_samsung_privacy_color))
                     .setContentTitle(getString(R.string.notification_desc))
                     .setContentText(getString(R.string.notification_hide))
-                    .setSmallIcon(R.drawable.app_logo)
                     .setContentIntent(pendingIntent)
                     .build();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                startForeground(3, notification,
-                        ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
-                                | ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE
-                                | ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+                startForeground(3, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA | ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE | ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
             } else {
                 startForeground(3, notification);
             }
@@ -118,7 +120,6 @@ public class PrivacyService extends AccessibilityService {
         excludedRepository = new ExcludedRepository(getApplication());
         preferenceManager = new PreferenceManager(getApplicationContext());
         notificationManager = NotificationManagerCompat.from(getApplicationContext());
-
     }
 
     @Override
@@ -132,21 +133,18 @@ public class PrivacyService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         try {
-            if (accessibilityEvent.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
-                    && accessibilityEvent.getPackageName() != null) {
-                ComponentName componentName = new ComponentName(accessibilityEvent.getPackageName().toString(),
-                        accessibilityEvent.getClassName().toString());
+            if (accessibilityEvent.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED && accessibilityEvent.getPackageName() != null) {
+                ComponentName componentName = new ComponentName(accessibilityEvent.getPackageName().toString(), accessibilityEvent.getClassName().toString());
                 runningAppPackage = componentName.getPackageName();
             }
         } catch (Exception e) {
-            Log.i(TAG, "onAccessibilityEvent:" + new Exception(e).getMessage());
-
+            Log.i(TAG, "onAccessibilityEvent:" + e.getMessage());
         }
     }
 
     @Override
     public void onInterrupt() {
-        Log.i(TAG, "onInterrupt: ");
+        Log.i(TAG, "onInterrupt");
     }
 
     @Override
@@ -174,7 +172,6 @@ public class PrivacyService extends AccessibilityService {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.registerGnssStatusCallback(getLocationCallback(),null);
         }
-
     }
 
     // Camera service callbacks
@@ -222,7 +219,7 @@ public class PrivacyService extends AccessibilityService {
     }
 
     // Location service Callbacks
-    private GnssStatus.Callback getLocationCallback(){
+    private GnssStatus.Callback getLocationCallback() {
         locationCallback = new GnssStatus.Callback() {
             @Override
             public void onStarted() {
@@ -246,11 +243,10 @@ public class PrivacyService extends AccessibilityService {
         return locationCallback;
     }
 
-    private void makeLog(String permission){
-
+    private void makeLog(String permission) {
         int state = Constants.STATE_INVALID;
 
-        switch (permission){
+        switch (permission) {
             case Constants.PERMISSION_CAMERA:
                 if (isCamUseStart && isCamInUse) {
                     state = Constants.STATE_ON;
@@ -259,7 +255,6 @@ public class PrivacyService extends AccessibilityService {
                     isCamUseStart = false;
                 }
                 break;
-
             case Constants.PERMISSION_MICROPHONE:
                 if (isMicUseStart && isMicInUse) {
                     state = Constants.STATE_ON;
@@ -268,7 +263,6 @@ public class PrivacyService extends AccessibilityService {
                     isMicUseStart = false;
                 }
                 break;
-
             case Constants.PERMISSION_LOCATION:
                 if (isLocUseStart && isLocInUse) {
                     state = Constants.STATE_ON;
@@ -277,28 +271,29 @@ public class PrivacyService extends AccessibilityService {
                     isLocUseStart = false;
                 }
                 break;
-
         }
 
         boolean isAllowed = isAppAllowed(permission);
 
-        if (!isAllowed && state == Constants.STATE_OFF && !lastAppPackage.equals(BuildConfig.APPLICATION_ID)){
-            if (!excludedRepository.isExcluded(lastAppPackage) || !preferenceManager.isPrivacyExcludeLogs()) {
-                Logs log = new Logs(Calendar.getInstance().getTimeInMillis(), lastAppPackage, permission, state, Utils.getDateFromTimestamp(Calendar.getInstance().getTimeInMillis()));
-                repository.insertLogs(log);
+        if (!isAllowed && state == Constants.STATE_OFF && !lastAppPackage.equals(BuildConfig.APPLICATION_ID) && runningAppId != null) {
+            if (!preferenceManager.isPrivacyExcluded() || !excludedRepository.isExcluded(lastAppPackage) || !preferenceManager.isPrivacyExcludeLogs()) {
+                Logs log = repository.getLogFromId(runningAppId);
+                log.setEndTimestamp(Calendar.getInstance().getTimeInMillis());
+                repository.update(log);
+                runningAppId = null;
             }
             lastAppPackage = BuildConfig.APPLICATION_ID;
         }
 
         if (isAppAllowed(permission)) {
+            runningAppId = new Random().nextInt();
             lastAppPackage = runningAppPackage;
-            if (!excludedRepository.isExcluded(runningAppPackage) || !preferenceManager.isPrivacyExcludeLogs()) {
-                Logs log = new Logs(Calendar.getInstance().getTimeInMillis(), runningAppPackage, permission, state, Utils.getDateFromTimestamp(Calendar.getInstance().getTimeInMillis()));
+            if (!preferenceManager.isPrivacyExcluded() || !excludedRepository.isExcluded(runningAppPackage) || !preferenceManager.isPrivacyExcludeLogs()) {
+                Logs log = new Logs(runningAppId, Calendar.getInstance().getTimeInMillis(), runningAppPackage, permission, state, Utils.getDateFromTimestamp(Calendar.getInstance().getTimeInMillis()));
                 repository.insertLogs(log);
                 showOnUseNotification();
             }
         }
-
     }
 
     // Unregistering on destroy
@@ -336,7 +331,7 @@ public class PrivacyService extends AccessibilityService {
         if (preferenceManager.isPrivacyDotMargin()){
             layoutParams.horizontalMargin = Constants.DOTS_MARGIN;
             layoutParams.verticalMargin = Constants.DOTS_MARGIN;
-        }else {
+        } else {
             layoutParams.horizontalMargin = 0f;
             layoutParams.verticalMargin = 0f;
         }
@@ -363,25 +358,26 @@ public class PrivacyService extends AccessibilityService {
         }, 300);
     }
 
-    private void getIcons(){
-
+    private void getIcons() {
         if (preferenceManager.isPrivacyDots()) {
-            switch (preferenceManager.getPrivacyDotType()){
-                case Constants.DOTS_TYPE_ICON:
-                    dotCamera.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_camera));
-                    dotMic.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_microphone));
-                    dotLoc.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_location));
-                    lyDots.setBackgroundResource(R.drawable.overlay_background);
-                    lyDots.setBackgroundTintList(ColorStateList.valueOf(preferenceManager.getIconColor()));
-                    break;
+            lyDots.setBackgroundResource(R.drawable.oui_overlay_background);
+            dotCamera.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.oui_privacy_dots_ic_camera));
+            dotMic.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.oui_privacy_dots_ic_microphone));
+            dotLoc.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.oui_privacy_dots_ic_location));
 
-                case Constants.DOTS_TYPE_DOT:
-                    dotCamera.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_dot_camera));
-                    dotMic.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_dot_mic));
-                    dotLoc.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_dot_location));
-                    lyDots.setBackground(null);
-                    break;
+            int bgColor = preferenceManager.getIconColor();
+            lyDots.setBackgroundTintList(ColorStateList.valueOf(bgColor));
+
+
+            int iconTint;
+            if (ColorUtils.calculateLuminance(bgColor) > 0.5) {
+                iconTint = ContextCompat.getColor(getApplicationContext(), R.color.oui_overlay_icon_tint_light);
+            } else {
+                iconTint = ContextCompat.getColor(getApplicationContext(), R.color.oui_overlay_icon_tint_dark);
             }
+            dotCamera.setImageTintList(ColorStateList.valueOf(iconTint));
+            dotMic.setImageTintList(ColorStateList.valueOf(iconTint));
+            dotLoc.setImageTintList(ColorStateList.valueOf(iconTint));
         } else {
             dotCamera.setImageDrawable(null);
             dotMic.setImageDrawable(null);
@@ -398,136 +394,139 @@ public class PrivacyService extends AccessibilityService {
             dotLoc.setOnClickListener(null);
         }
 
-        int size = (int) (30 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
-        int padding = (int) (5 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
-        int image_padding = (int) (5 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+        final int iconWidth = (int) (10 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+        final int iconHeight = (int) (18 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+        final int firstIconMargin = (int) (2 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+        final int iconMargin = (int) (5 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
 
-        dotCamera.setPadding(image_padding, image_padding, image_padding, image_padding);
-        dotMic.setPadding(image_padding, image_padding, image_padding, image_padding);
-        dotLoc.setPadding(image_padding, image_padding, image_padding, image_padding);
-        dotIcon.setPadding(image_padding, image_padding, image_padding, image_padding);
-        dotCamera.setLayoutParams(params);
+        ViewGroup.MarginLayoutParams firstIconParams = new LinearLayout.LayoutParams(iconWidth, iconHeight);
+        firstIconParams.setMarginStart(firstIconMargin);
+        dotCamera.setLayoutParams(firstIconParams);
+
+        ViewGroup.MarginLayoutParams params = new LinearLayout.LayoutParams(iconWidth, iconHeight);
+        params.setMarginStart(iconMargin);
         dotMic.setLayoutParams(params);
         dotLoc.setLayoutParams(params);
-        dotIcon.setLayoutParams(params);
 
+        final int height = (int) (18 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+        final int padding = (int) (5 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) lyDots.getLayoutParams();
+        lp.height = height;
+        lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+        lyDots.setLayoutParams(lp);
         lyDots.setPadding(padding, 0, padding, 0);
-        lyDots.setAlpha((float) preferenceManager.getPrivacyDotOpacity()/100);
 
+        GradientDrawable bgDrawable = (GradientDrawable) lyDots.getBackground();
+        if (bgDrawable != null) {
+            bgDrawable.setCornerRadius(10 * Utils.getDensity(getApplicationContext()) * preferenceManager.getPrivacyDotSize() / 100);
+        }
+
+        lyDots.setAlpha((float) preferenceManager.getPrivacyDotOpacity()/100);
     }
 
-    private void showDots(String permission){
-        if (!excludedRepository.isExcluded(runningAppPackage) || !preferenceManager.isPrivacyExcludeIndicator()) {
-            isPermissionStopped = false;
+    private void showDots(String permission) {
+        if (preferenceManager.isPrivacyExcluded() && excludedRepository.isExcluded(runningAppPackage) && preferenceManager.isPrivacyExcludeIndicator()) {
+            return;
+        }
 
-            getIcons();
+        isPermissionStopped = false;
 
-            switch (permission) {
-                case Constants.PERMISSION_CAMERA:
-                    dotCamera.setVisibility(View.VISIBLE);
-                    break;
+        getIcons();
 
-                case Constants.PERMISSION_MICROPHONE:
-                    dotMic.setVisibility(View.VISIBLE);
-                    break;
+        switch (permission) {
+            case Constants.PERMISSION_CAMERA:
+                dotCamera.setVisibility(View.VISIBLE);
+                break;
+            case Constants.PERMISSION_MICROPHONE:
+                dotMic.setVisibility(View.VISIBLE);
+                break;
+            case Constants.PERMISSION_LOCATION:
+                dotLoc.setVisibility(View.VISIBLE);
+                break;
+        }
 
-                case Constants.PERMISSION_LOCATION:
-                    dotLoc.setVisibility(View.VISIBLE);
-                    break;
+        if (preferenceManager.isPrivacyDots()) {
+            lyDots.setVisibility(View.VISIBLE);
+            dotIcon.setVisibility(View.GONE);
 
-                default:
-
+            if (preferenceManager.isPrivacyDotAutoHide()) {
+                lyDots.postDelayed(() -> {
+                    if (!isPermissionStopped) {
+                        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
+                        lyDots.startAnimation(animation);
+                        lyDots.postDelayed(() -> {
+                            if (!isPermissionStopped) {
+                                dotCamera.setVisibility(View.GONE);
+                                dotMic.setVisibility(View.GONE);
+                                dotLoc.setVisibility(View.GONE);
+                                lyDots.setBackground(null);
+                                dotIcon.setVisibility(View.VISIBLE);
+                            }
+                        }, 400);
+                    }
+                }, preferenceManager.getPrivacyDotAutoHideTimer() * 1000);
             }
 
-            if (preferenceManager.isPrivacyDots()) {
-                lyDots.setVisibility(View.VISIBLE);
-                dotIcon.setVisibility(View.GONE);
-
-                if (preferenceManager.isPrivacyDotAutoHide()) {
-                    lyDots.postDelayed(() -> {
-                        if (!isPermissionStopped) {
-                            Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
-                            lyDots.startAnimation(animation);
-                            lyDots.postDelayed(() -> {
-                                if (!isPermissionStopped) {
-                                    dotCamera.setVisibility(View.GONE);
-                                    dotMic.setVisibility(View.GONE);
-                                    dotLoc.setVisibility(View.GONE);
-                                    lyDots.setBackground(null);
-                                    dotIcon.setVisibility(View.VISIBLE);
-                                }
-                            }, 400);
-                        }
-                    }, preferenceManager.getPrivacyDotAutoHideTimer() * 1000);
-                }
-
-                if (preferenceManager.isPrivacyDotHide()) {
-                    lyDots.postDelayed(() -> {
-                        if (!isPermissionStopped) {
-                            Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
-                            lyDots.startAnimation(animation);
-                            lyDots.postDelayed(() -> {
-                                if (!isPermissionStopped) {
-                                    dotCamera.setVisibility(View.GONE);
-                                    dotMic.setVisibility(View.GONE);
-                                    dotLoc.setVisibility(View.GONE);
-                                    lyDots.setBackground(null);
-                                    dotIcon.setVisibility(View.GONE);
-                                }
-                            }, 400);
-                        }
-                    }, preferenceManager.getPrivacyDotHideTimer() * 1000);
-                }
-
-                layoutParams.gravity = preferenceManager.getPrivacyDotPosition();
-                if (preferenceManager.isPrivacyDotMargin()) {
-                    layoutParams.horizontalMargin = Constants.DOTS_MARGIN;
-                    layoutParams.verticalMargin = Constants.DOTS_MARGIN;
-                } else {
-                    layoutParams.horizontalMargin = 0f;
-                    layoutParams.verticalMargin = 0f;
-                }
-
-                windowManager.updateViewLayout(hoverLayout, layoutParams);
+            if (preferenceManager.isPrivacyDotHide()) {
+                lyDots.postDelayed(() -> {
+                    if (!isPermissionStopped) {
+                        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
+                        lyDots.startAnimation(animation);
+                        lyDots.postDelayed(() -> {
+                            if (!isPermissionStopped) {
+                                dotCamera.setVisibility(View.GONE);
+                                dotMic.setVisibility(View.GONE);
+                                dotLoc.setVisibility(View.GONE);
+                                lyDots.setBackground(null);
+                                dotIcon.setVisibility(View.GONE);
+                            }
+                        }, 400);
+                    }
+                }, preferenceManager.getPrivacyDotHideTimer() * 1000);
             }
+
+            layoutParams.gravity = preferenceManager.getPrivacyDotPosition();
+            if (preferenceManager.isPrivacyDotMargin()) {
+                layoutParams.horizontalMargin = Constants.DOTS_MARGIN;
+                layoutParams.verticalMargin = Constants.DOTS_MARGIN;
+            } else {
+                layoutParams.horizontalMargin = 0f;
+                layoutParams.verticalMargin = 0f;
+            }
+
+            windowManager.updateViewLayout(hoverLayout, layoutParams);
         }
     }
 
     private void hideDots(String permission){
-        switch (permission){
+        switch (permission) {
             case Constants.PERMISSION_CAMERA:
                 dotCamera.setVisibility(View.GONE);
                 break;
-
             case Constants.PERMISSION_MICROPHONE:
                 dotMic.setVisibility(View.GONE);
                 break;
-
             case Constants.PERMISSION_LOCATION:
                 dotLoc.setVisibility(View.GONE);
                 break;
-
-            default:
-
         }
 
-        if (dotCamera.getVisibility() == View.GONE && dotMic.getVisibility() == View.GONE
-                && dotLoc.getVisibility() == View.GONE){
+        if (dotCamera.getVisibility() == View.GONE && dotMic.getVisibility() == View.GONE && dotLoc.getVisibility() == View.GONE){
             lyDots.setVisibility(View.GONE);
-        }else {
+        } else {
             lyDots.setVisibility(View.VISIBLE);
         }
 
         isPermissionStopped = true;
-
     }
 
-    //Privacy notification
+    // Privacy notification
     private void initOnUseNotification(String packageName) {
         notificationCompatBuilder = new NotificationCompat.Builder(getApplicationContext(), Constants.PERMISSION_NOTIFICATION_CHANNEL)
                 .setSmallIcon(getPermissionIcon())
+                .setColor(getColor(R.color.oui_samsung_privacy_color))
                 .setContentTitle(getNotificationTitle(Utils.getNameFromPackageName(this, runningAppPackage)))
                 .setContentText(getNotificationDescription())
                 .setContentIntent(getPendingIntent(packageName))
@@ -535,18 +534,22 @@ public class PrivacyService extends AccessibilityService {
                 .setAutoCancel(false)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
-        if (preferenceManager.isPrivacyNotificationIcon())
+        if (preferenceManager.isPrivacyNotificationIcon()) {
             notificationCompatBuilder.setLargeIcon(Utils.getAppIcon(this, runningAppPackage));
+        }
 
         notificationManager = NotificationManagerCompat.from(getApplicationContext());
     }
 
     private void showOnUseNotification() {
         if (preferenceManager.isPrivacyNotification()) {
-            if (!excludedRepository.isExcluded(runningAppPackage) || !preferenceManager.isPrivacyExcludeNotification()) {
-                initOnUseNotification(runningAppPackage);
-                if (notificationManager != null)
-                    notificationManager.notify(Constants.NOTIFICATION_ID, notificationCompatBuilder.build());
+            if (preferenceManager.isPrivacyExcluded() && excludedRepository.isExcluded(runningAppPackage) && preferenceManager.isPrivacyExcludeNotification()) {
+                return;
+            }
+
+            initOnUseNotification(runningAppPackage);
+            if (notificationManager != null) {
+                notificationManager.notify(Constants.NOTIFICATION_ID, notificationCompatBuilder.build());
             }
         }
     }
@@ -555,7 +558,9 @@ public class PrivacyService extends AccessibilityService {
         if (isCamInUse || isMicInUse || isLocInUse) {
             showOnUseNotification();
         } else {
-            if (notificationManager != null) notificationManager.cancel(Constants.NOTIFICATION_ID);
+            if (notificationManager != null) {
+                notificationManager.cancel(Constants.NOTIFICATION_ID);
+            }
         }
     }
 
@@ -567,31 +572,34 @@ public class PrivacyService extends AccessibilityService {
     }
 
     private String getNotificationDescription() {
-
         String description = getString(R.string.notification_app_using);
 
         if (isCamInUse) {
             description = description + getString(R.string.permission_camera);
         }
-        if (isMicInUse) {
-            if (isCamInUse && !isLocInUse)
-                description = description + getString(R.string.notification_app_and);
 
-            if (isCamInUse && isLocInUse)
+        if (isMicInUse) {
+            if (isCamInUse && !isLocInUse) {
+                description = description + getString(R.string.notification_app_and);
+            }
+
+            if (isCamInUse && isLocInUse) {
                 description = description + ", ";
+            }
             description = description + getString(R.string.permission_microphone);
         }
+
         if (isLocInUse) {
-            if (isCamInUse | isMicInUse)
+            if (isCamInUse | isMicInUse) {
                 description = description + getString(R.string.notification_app_and);
+            }
 
             description = description + getString(R.string.permission_location);
         }
 
-        if ((isCamInUse && isMicInUse) | (isMicInUse && isLocInUse) |
-                (isLocInUse && isCamInUse)) {
+        if ((isCamInUse && isMicInUse) | (isMicInUse && isLocInUse) | (isLocInUse && isCamInUse)) {
             description = description + getString(R.string.notification_app_permissions);
-        }else {
+        } else {
             description = description + getString(R.string.notification_app_permission);
         }
 
@@ -599,10 +607,9 @@ public class PrivacyService extends AccessibilityService {
     }
 
     private PendingIntent getPendingIntent(String packageName) {
-
         Intent i;
         if (!preferenceManager.isPrivacyNotificationClick()) {
-            i = new Intent(getApplicationContext(), AppInfoActivity.class);
+            i = new Intent(getApplicationContext(), OldAppInfoActivity.class);
             i.putExtra(Constants.EXTRA_APP, packageName);
         }else {
             i = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -614,8 +621,7 @@ public class PrivacyService extends AccessibilityService {
         return PendingIntent.getActivity(getApplicationContext(), 1,i, FLAG_UPDATE_CURRENT);
     }
 
-    private int getPermissionIcon(){
-
+    private int getPermissionIcon() {
         if (isCamInUse && isMicInUse && isLocInUse) {
             return R.drawable.notification_cml;
         }
@@ -629,42 +635,41 @@ public class PrivacyService extends AccessibilityService {
             return R.drawable.notification_ml;
         }
         if (isCamInUse) {
-            return R.drawable.icon_camera;
+            return R.drawable.oui_icon_perm_group_camera;
         }
         if (isMicInUse) {
-            return R.drawable.icon_microphone;
+            return R.drawable.oui_icon_perm_group_microphone;
         }
         if (isLocInUse) {
-            return R.drawable.icon_location;
+            return R.drawable.oui_icon_perm_group_location;
         }
 
-        return R.drawable.notification_icon;
+        return R.drawable.oui_ic_privacy;
     }
 
 
     private boolean isAppAllowed(String permission) {
-
         String permissionManifest = Manifest.permission.ACCESS_FINE_LOCATION;
 
         switch (permission) {
             case Constants.PERMISSION_CAMERA:
                 permissionManifest = Manifest.permission.CAMERA;
                 break;
-
             case Constants.PERMISSION_MICROPHONE:
                 permissionManifest = Manifest.permission.RECORD_AUDIO;
                 break;
-
             case Constants.PERMISSION_LOCATION:
                 permissionManifest = Manifest.permission.ACCESS_FINE_LOCATION;
                 break;
         }
 
-        if (runningAppPackage.equals(BuildConfig.APPLICATION_ID))
+        if (runningAppPackage.equals(BuildConfig.APPLICATION_ID)) {
             return false;
+        }
 
-        if (Utils.getSystemApps(getApplicationContext()).contains(runningAppPackage))
+        if (Utils.getSystemApps(getApplicationContext()).contains(runningAppPackage)) {
             return false;
+        }
 
         return getPackageManager().checkPermission(permissionManifest, runningAppPackage) == PackageManager.PERMISSION_GRANTED;
     }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:expanded="false">
+    <FrameLayout
+        android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="?attr/roundedCornerColor" app:layout_location="main_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/no_items_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/no_item_title_text" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.43" android:gravity="center" android:textSize="17.0sp" android:textColor="@color/oui_permission_detail_no_items_text_color" />
+            <TextView
+                android:id="@+id/no_item_sub_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/no_item_title_text" app:layout_constraintEnd_toEndOf="parent" android:gravity="center" android:textSize="13.0sp" android:textColor="@color/oui_permission_detail_no_items_sub_text_color" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <de.dlyt.yanndroid.oneui.view.RecyclerView
+            android:id="@+id/detail_recycler_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scrollbars="vertical" android:visibility="gone" />
+
+        <de.dlyt.yanndroid.oneui.widget.ProgressBar
+            android:id="@+id/detail_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone" style="?android:attr/progressBarStyleLarge" />
+    </FrameLayout>
+</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>

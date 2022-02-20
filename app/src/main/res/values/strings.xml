@@ -1,4 +1,132 @@
 <resources>
+    <!-- One UI -->
+    <string name="sesl_action_bar_up_description">Navigate up</string>
+    <!--<string name="sesl_font_family_regular">sans-serif</string>-->
+
+    <string name="oui_apps">Apps</string>
+    <string name="oui_camera">Camera</string>
+    <string name="oui_close">Close</string>
+    <string name="oui_done">Done</string>
+    <string name="oui_hide_system_apps">Hide system apps</string>
+    <string name="oui_info">Info</string>
+    <string name="oui_location">Location</string>
+    <string name="oui_microphone">Microphone</string>
+    <string name="oui_no">No</string>
+    <string name="oui_ok">OK</string>
+    <string name="oui_permissions">Permissions</string>
+    <string name="oui_permission_settings">Permission settings</string>
+    <string name="oui_show_system_apps">Show system apps</string>
+    <string name="oui_yes">Yes</string>
+
+    <string name="oui_permission_help_title">About permissions</string>
+    <string name="oui_permission_help_camera_description">Allows the app to take pictures and record videos.</string>
+    <string name="oui_permission_help_location_description">Allows the app to access your phone\'s location.</string>
+    <string name="oui_permission_help_microphone_description">Allows the app to record sounds.</string>
+
+    <string name="oui_limitations_help_title">App limitations</string>
+    <string name="oui_limitations_help_description">When any permission is in use, the app checks which app is running in foreground and logs it in the database.\n\nBut sometimes it may happen that System UI, Launcher or any other app is running over the main app, so mistakenly these apps will be logged in database instead of the real app which is using the permission.\n\nThis is a limitation for this app, as it\'s difficult to find which app is running in the background.</string>
+
+    <string name="oui_permission_page_description">The following permissions are required for the app to work correctly.</string>
+    <string name="oui_app_permission_location_title">Location access</string>
+    <string name="oui_app_permission_location_summary">This permission is used to log location usage.</string>
+    <string name="oui_app_permission_accessibility_title">Accessibility settings</string>
+    <string name="oui_app_permission_accessibility_summary">This permission is used to log camera and microphone usages.</string>
+    <string name="oui_permission_footer_button_text">Start</string>
+
+    <string name="oui_permission_tipcard_title">Permissions not granted</string>
+    <string name="oui_permission_tipcard_summary">One or both permissions needed by the app have not been granted.</string>
+    <string name="oui_permission_tipcard_action">Allow</string>
+
+    <string name="oui_permission_usage_history_category">Permissions used in last 24 hours</string>
+    <string name="oui_permission_usage_history_view_all">All permissions</string>
+
+    <string name="oui_permission_manager">Permission manager</string>
+    <string name="oui_privacy_settings">Privacy settings</string>
+
+    <string name="oui_app_settings">Settings</string>
+    <string name="oui_settings_privacy_dots_title">Privacy chip</string>
+    <string name="oui_settings_privacy_dots_subheader">Show an indicator when a permission is being used.</string>
+    <string name="oui_settings_privacy_dots_color_title">Color</string>
+    <string name="oui_settings_privacy_dots_position_title">Position</string>
+    <string name="oui_settings_privacy_dots_position_tl">Top left</string>
+    <string name="oui_settings_privacy_dots_position_tc">Top center</string>
+    <string name="oui_settings_privacy_dots_position_tr">Top right</string>
+    <string name="oui_settings_privacy_dots_position_lc">Center left</string>
+    <string name="oui_settings_privacy_dots_position_rc">Center right</string>
+    <string name="oui_settings_privacy_dots_position_bl">Bottom left</string>
+    <string name="oui_settings_privacy_dots_position_bc">Bottom center</string>
+    <string name="oui_settings_privacy_dots_position_br">Bottom right</string>
+    <string name="oui_settings_privacy_dots_size_title">Size</string>
+    <string name="oui_settings_privacy_dots_size_unit">%</string>
+    <string name="oui_settings_privacy_dots_opacity_title">Opacity</string>
+    <string name="oui_settings_privacy_dots_hide_title">Auto hide</string>
+    <string name="oui_settings_privacy_dots_hide_timer_title">Hide time</string>
+    <string name="oui_settings_privacy_dots_hide_timer_unit">sec</string>
+    <string name="oui_settings_privacy_dots_minimize_title">Minimize to dot (beta)</string>
+    <string name="oui_settings_privacy_dots_minimize_timer_title">Minimize time</string>
+    <string name="oui_settings_privacy_dots_margin_title">Add bezel margins</string>
+    <string name="oui_settings_privacy_dots_margin_summary">Add margins to the indicator so that it doesn\'t sticks to device bezels.</string>
+    <string name="oui_settings_privacy_dots_click_title">Click action</string>
+    <string name="oui_settings_privacy_dots_click_summary">Open the respective permission log page when clicking its indicator.</string>
+    <string name="oui_settings_notification_title">Notification alert</string>
+    <string name="oui_settings_notification_subheader">Receive a notification whenever a permission is being used.</string>
+    <string name="oui_settings_notification_ongoing_title">Continuous notification</string>
+    <string name="oui_settings_notification_ongoing_summary">The notification will disappear only after the permission usage is stopped.</string>
+    <string name="oui_settings_notification_icon_title">Show app icon</string>
+    <string name="oui_settings_notification_icon_summary">Display the app icon in the notification for the respective permission usage.</string>
+    <string name="oui_settings_notification_click_title">Open app info on click</string>
+    <string name="oui_settings_notification_click_summary">The notification will send you to the app info page instead of the permission log.</string>
+    <string name="oui_settings_other_notifs_title">Notification settings</string>
+    <string name="oui_settings_exclude_title">Exclude apps</string>
+    <string name="oui_settings_exclude_summary">Choose which app to exclude from the permissions monitoring.</string>
+    <string name="oui_settings_exclude_summary_enabled">%d apps</string>
+    <string name="oui_settings_delete_logs_title">Delete all logs</string>
+    <string name="oui_settings_delete_logs_summary">Clear all app usage logs for all permissions.</string>
+    <string name="oui_settings_dark_mode_title">Dark mode</string>
+    <string name="oui_settings_dark_mode_off">Off</string>
+    <string name="oui_settings_dark_mode_on">On</string>
+    <string name="oui_settings_dark_mode_system">Default</string>
+
+    <string name="oui_aboutpage_details_button">Credits</string>
+
+    <string name="oui_excluded_apps">Excluded apps</string>
+    <string name="oui_excluded_apps_type">Exclude from</string>
+    <string name="oui_settings_exclude_type_indicator">Indicator</string>
+    <string name="oui_settings_exclude_type_notification">Notification</string>
+    <string name="oui_settings_exclude_type_logs">Logs</string>
+
+    <string name="oui_log_title">Usage history</string>
+
+    <string name="oui_app_detail_no_items">No apps have used this permission</string>
+    <string name="oui_permission_detail_no_items">No permission has been used</string>
+    <string name="oui_permission_detail_see_more">View more</string>
+
+    <string name="oui_details_delete_logs">Delete logs</string>
+    <string name="oui_details_delete_logs_title">Delete %s logs</string>
+    <string name="oui_details_delete_logs_text">Are you sure you want to delete all the %s permission logs?</string>
+    <string name="oui_delete_all_logs_dialog_text">Are you sure you want delete all the permissions usage logs?</string>
+
+
+
+
+
+
+
+    <string name="log_info">Timeline of when apps used your #ALIAS# permission</string>
+    <string name="log_info_app">Timeline of when #ALIAS# used your permissions</string>
+    <string name="log_empty">No app usage</string>
+    <string name="log_button_manage">Manage permission</string>
+    <string name="log_today">Today</string>
+    <string name="log_yesterday">Yesterday</string>
+    <string name="log_permission_start">Started</string>
+    <string name="log_permission_stop">Stopped</string>
+    <string name="log_permission_invalid">Unknown</string>
+
+
+
+
+
+
 
     <!--Test strings-->
     <string name="permission_name">Location</string>
@@ -17,7 +145,7 @@
 
     <string name="profile_made_by" translatable="false">Made by Rushikesh Kamewar</string>
     <string name="profile_version">Version -</string>
-    <string name="profile_github" translatable="false">Github</string>
+    <string name="profile_github" translatable="false">GitHub</string>
     <string name="profile_donate">Donate</string>
     <string name="profile_contact">Contact</string>
 
@@ -49,23 +177,6 @@
     <string name="start_permission_info">Your device will terminate the background app service. App will need AutoStart permission to work properly.</string>
     <string name="start_setup">Setup</string>
 
-    <!--Delete permission dialog-->
-    <string name="delete_logs_title">Delete #ALIAS# logs</string>
-    <string name="delete_logs_info">Are you sure you want to delete all #ALIAS# permission logs?</string>
-
-    <string name="delete_logs_title2">Delete logs</string>
-    <string name="delete_logs_info2">Are you sure you want delete app usage logs for all permissions?</string>
-
-    <!--Help dialog-->
-    <string name="help_title">App limitation</string>
-    <string name="help_info">When any permission is in use, my app checks which app is running in foreground and logs it in the database.\n\nBut sometimes it may happen that System UI, Launcher or Keyboard app is running over the main app, so mistakenly these apps will be logged in database instead of real app which is using the permission.\n\nThis is a limitation for this app, as it\'s difficult to find which app is running in the background.</string>
-
-    <!--Generic dialog buttons-->
-    <string name="dialog_done" translatable="false">Done</string>
-    <string name="dialog_close">Close</string>
-    <string name="dialog_yes">Yes</string>
-    <string name="dialog_no">No</string>
-
     <!--Menu-->
     <string name="menu_theme">Theme</string>
     <string name="menu_delete">Delete</string>
@@ -75,18 +186,6 @@
     <string name="menu_include" translatable="false">Include</string>
 
     <string name="menu_refresh_info">Logs Updated</string>
-
-    <!--Theme Dialog-->
-    <string name="theme_title">Theme</string>
-    <string name="dialog_theme_title">Choose Theme</string>
-    <string name="dialog_theme_light">Light</string>
-    <string name="dialog_theme_dark">Dark</string>
-    <string name="dialog_theme_system">System Default</string>
-    <string name="dialog_theme_battery">Set by Battery Saver</string>
-
-    <!--Theme Dialog-->
-    <string name="color_title" translatable="false">Color</string>
-    <string name="dialog_color_title" translatable="false">Select Color</string>
 
     <!--Permissions-->
     <string name="permission_camera">Camera</string>
@@ -99,53 +198,6 @@
     <string name="permission_no_apps">Not used today</string>
 
     <!--Settings-->
-    <string name="settings_title">App Settings</string>
-    <string name="settings_info">Manage app theme, permissions, etc</string>
-
-    <string name="settings_dots">Privacy Indicators</string>
-    <string name="settings_dots_info">When permission is in use respective icon will be displayed in top-right corner</string>
-
-    <string name="settings_dots_custom">Indicator Customization</string>
-    <string name="dots_custom_type">Type</string>
-    <string name="dots_custom_type_icon">Permission icons</string>
-    <string name="dots_custom_type_dot">Colored dots</string>
-    <string name="dots_custom_color" translatable="false">Color</string>
-    <string name="dots_custom_color_info" translatable="false">#61B773</string>
-    <string name="dots_custom_position">Position</string>
-    <string name="dots_custom_position_tl">Top-Left</string>
-    <string name="dots_custom_position_tc">Top-Center</string>
-    <string name="dots_custom_position_tr">Top-Right</string>
-    <string name="dots_custom_position_rc">Right-Center</string>
-    <string name="dots_custom_position_br">Right-Bottom</string>
-    <string name="dots_custom_position_bc">Bottom-Center</string>
-    <string name="dots_custom_position_bl">Bottom-Left</string>
-    <string name="dots_custom_position_lc">Left-Center</string>
-    <string name="dots_custom_margin">Add Bezel Margin</string>
-    <string name="dots_custom_margin_info">When enabled adds margin to the indicator so that it doesn\'t stick to device bezels.</string>
-    <string name="dots_custom_click">Click action</string>
-    <string name="dots_custom_click_info">When enabled, you can click on indicator and it\'ll take you to particular permission log.</string>
-    <string name="dots_custom_size">Size</string>
-    <string name="dots_custom_size_unit">%</string>
-    <string name="dots_custom_opacity">Opacity</string>
-    <string name="dots_custom_hide" translatable="false">Auto hide</string>
-    <string name="dots_custom_hide_info" translatable="false">When enabled if permission is used for more than selected hide time, indicator will be hidden.</string>
-    <string name="dots_custom_hide_timer" translatable="false">Hide time</string>
-    <string name="dots_custom_minimize">Minimize to dot (beta)</string>
-    <string name="dots_custom_minimize_info">When enabled if permission is used for more than selected minimize time, indicator will be minimized to small dot.</string>
-    <string name="dots_custom_minimize_timer" translatable="false">Minimize dot time</string>
-    <string name="dots_custom_minimize_timer_unit" translatable="false">" sec"</string>
-
-    <string name="settings_notification">Notification alert</string>
-    <string name="settings_notification_info">When enabled you\'ll receive a notification whenever a permission is being used</string>
-
-    <string name="settings_notification_custom">Notification Customization</string>
-    <string name="notification_custom_ongoing">Continuous notification</string>
-    <string name="notification_custom_ongoing_info">If enabled app will show a continuous notification when permission is being used which will then disappear after permission usage is stopped.</string>
-    <string name="notification_custom_icon">App icon</string>
-    <string name="notification_custom_icon_info">If enabled app icon will be displayed in the notification for respective permission usage</string>
-    <string name="notification_custom_click" translatable="false">Open app info on click</string>
-    <string name="notification_custom_click_info" translatable="false">If enabled app info page will be opened instead of log for the permission</string>
-
     <string name="settings_accessibility">Accessibility Setting</string>
     <string name="settings_accessibility_on">Turn on accessibility settings</string>
     <string name="settings_accessibility_off">Turn off accessibility settings</string>
@@ -160,20 +212,14 @@
     <string name="settings_location_info">Location permission access is required to log the location app usage.</string>
     <string name="settings_location_info_short">This permission is used to log the location app usage.</string>
 
-    <string name="settings_hide_notification">Hide notification</string>
-    <string name="settings_hide_notification_info">Click here to hide running notification</string>
-
-    <string name="settings_limitation">App limitation</string>
+    <string name="settings_limitation">App limitations</string>
     <string name="settings_limitation_info">Click here to know about app limitations</string>
-
-    <string name="settings_delete_logs">Delete all logs</string>
-    <string name="settings_delete_logs_info">Clear all app usage logs for all permissions</string>
 
     <string name="settings_release">Changelog</string>
     <string name="settings_release_info">See whats\'s new in version -</string>
 
-    <string name="settings_github" translatable="false">Github</string>
-    <string name="settings_github_info" translatable="false">Checkout app on github</string>
+    <string name="settings_github" translatable="false">GitHub</string>
+    <string name="settings_github_info" translatable="false">Checkout app on GitHub</string>
 
     <string name="settings_telegram">Telegram</string>
     <string name="settings_telegram_info">Join telegram support group</string>
@@ -188,19 +234,6 @@
     <!--Pie chart-->
     <string name="chart_title">Log overview</string>
     <string name="chart_center_text">Past\n 24 hours</string>
-    
-    <!--Permission history-->
-    <string name="log_title">Permission history</string>
-    <string name="log_info">Timeline of when apps used your #ALIAS# permission</string>
-    <string name="log_info_app">Timeline of when #ALIAS# used your permissions</string>
-    <string name="log_empty">No app usage</string>
-    <string name="log_button_manage">Manage permission</string>
-    <string name="log_usage">usage</string>
-    <string name="log_today">Today</string>
-    <string name="log_yesterday">Yesterday</string>
-    <string name="log_permission_start">Started</string>
-    <string name="log_permission_stop">Stopped</string>
-    <string name="log_permission_invalid">Unknown</string>
 
     <!--Donations-->
     <string name="donation_free">FREE</string>
@@ -216,13 +249,9 @@
     <string name="donation_super_info">Super Duper support &#10084;\nThis donation will go towards a new testing device and new laptop.</string>
 
     <!--App Exclusion-->
-    <string name="settings_exclude" translatable="false">Exclude apps</string>
-    <string name="settings_exclude_info" translatable="false">Exclude apps from indicator, notification or log</string>
 
-    <string name="settings_exclude_type" translatable="false">Exclude from</string>
-    <string name="settings_exclude_type_indicator" translatable="false">Indicator</string>
-    <string name="settings_exclude_type_notification" translatable="false">Notification</string>
-    <string name="settings_exclude_type_logs" translatable="false">Logs</string>
+
+
 
     <string name="settings_excluded_title" translatable="false">Excluded apps</string>
     <string name="settings_excluded_info" translatable="false">" apps are excluded"</string>

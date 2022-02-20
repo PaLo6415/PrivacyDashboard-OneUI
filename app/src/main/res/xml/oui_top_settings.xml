@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.dlyt.yanndroid.oneui.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreferenceScreen
+        android:key="privacy.dots" android:title="@string/oui_settings_privacy_dots_title" android:defaultValue="true">
+        <intent
+            android:targetPackage="rk.android.app.privacydashboard" android:targetClass="rk.android.app.privacydashboard.activity.settings.indicator.IndicatorSettingsActivity" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen
+        android:key="privacy.notification" android:title="@string/oui_settings_notification_title" android:defaultValue="false">
+        <intent
+            android:targetPackage="rk.android.app.privacydashboard" android:targetClass="rk.android.app.privacydashboard.activity.settings.notification.NotificationSettingsActivity" />
+    </SwitchPreferenceScreen>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory
+        android:key="category_0">
+        <SwitchPreferenceCompat
+            android:key="privacy.location" android:title="@string/oui_app_permission_location_title" android:summary="@string/oui_app_permission_location_summary" android:defaultValue="false" />
+        <SwitchPreferenceCompat
+            android:key="privacy.accessibility" android:title="@string/oui_app_permission_accessibility_title" android:summary="@string/oui_app_permission_accessibility_summary" android:defaultValue="false" />
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory
+        android:key="category_1">
+        <SwitchPreferenceScreen
+            android:key="privacy.exclude" android:title="@string/oui_settings_exclude_title" android:summary="@string/oui_settings_exclude_summary" android:defaultValue="false">
+            <intent
+                android:targetPackage="rk.android.app.privacydashboard" android:targetClass="rk.android.app.privacydashboard.activity.settings.excluded.ExcludeSettingsActivity" />
+        </SwitchPreferenceScreen>
+        <Preference
+            android:key="delete.logs" android:title="@string/oui_settings_delete_logs_title" android:summary="@string/oui_settings_delete_logs_summary" />
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <InsetPreferenceCategory />
+
+    <DropDownPreference
+        android:key="night.mode" android:title="@string/oui_settings_dark_mode_title" android:entries="@array/theme_pref_entries" android:entryValues="@array/theme_pref_values" android:defaultValue="0"/>
+
+    <de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+        <Preference
+            android:key="changelog" android:title="@string/settings_release" />
+        <de.dlyt.yanndroid.oneui.preference.PreferenceScreen
+            android:key="about.app" android:title="About Privacy Dashboard">
+            <intent
+                android:targetPackage="rk.android.app.privacydashboard" android:targetClass="rk.android.app.privacydashboard.activity.about.AboutActivity" />
+        </de.dlyt.yanndroid.oneui.preference.PreferenceScreen>
+    </de.dlyt.yanndroid.oneui.preference.PreferenceCategory>
+
+    <InsetPreferenceCategory />
+
+</de.dlyt.yanndroid.oneui.preference.PreferenceScreen>

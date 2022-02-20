@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72.0dip" android:height="72.0dip" android:viewportWidth="72.0" android:viewportHeight="72.0">
+    <path
+        android:fillColor="@color/oui_icon_camera_color" android:pathData="M55.4,27.4c-0.3,1.4 -1.4,2.5 -2.8,2.8c-2.7,0.6 -5.1,-1.8 -4.5,-4.5c0.3,-1.4 1.4,-2.5 2.8,-2.8C53.7,22.3 56,24.7 55.4,27.4M44.5,37.1c-0.5,3.8 -3.6,6.9 -7.4,7.4c-5.6,0.7 -10.3,-4 -9.6,-9.6c0.5,-3.8 3.6,-6.9 7.4,-7.4C40.5,26.8 45.2,31.5 44.5,37.1M53,17.5h-0.5H19c-4.5,0 -8.1,3.6 -8.1,8.1v20.9c0,4.5 3.6,8.1 8.1,8.1H53c4.5,0 8.1,-3.6 8.1,-8.1V25.6C61.1,21.1 57.4,17.5 53,17.5" />
+</vector>

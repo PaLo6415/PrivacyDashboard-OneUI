@@ -1,5 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/background_permission_item_permission_root_ripple.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/dialog_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/donate_ads.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/ic_clock_alarm_ic_spotify_link.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/ic_homepage_privacy.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/ic_perm_group_camera.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/ic_privacy_shield_24dp.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/ic_settings_privacy.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/ic_wifi_privacy_24dp.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/icon_background.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_camera.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_circle.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_donate.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_dot_camera.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/icon_empty.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/icon_location.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_no_apps.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_select.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/icon_settings.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/indicator_color_edit.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/indicator_dot.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/indicator_position.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/log_help.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/log_separator.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/menu_exclude_on.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/menu_theme.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/notification_app_icon.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/notification_continuous.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/notification_icon.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/oui_aboutpage_button.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_aboutpage_button_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_alert_badge_icon_bg.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/oui_app_picker_grid_bg.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/oui_app_picker_ic_setting.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_dots_line.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/oui_history_usage_bar_bg_empty.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_ic_delete.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_ic_privacy.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_ic_settings.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_icon_perm_group_camera.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_icon_perm_group_location.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_icon_perm_group_microphone.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_permission_button_background.xml" value="0.17314814814814813" />
+        <entry key="app/src/main/res/drawable/oui_permission_detail_item_bg_ripple.xml" value="0.112" />
+        <entry key="app/src/main/res/drawable/oui_permission_detail_item_ripple.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/oui_permission_item_bg_root.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_permission_item_bg_root_ripple.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_permission_usage_bar_bg.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/oui_permission_usage_bar_bg_empty.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_permission_usage_bar_empty_bg.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_privacy_dots_ic_camera.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/oui_privacy_dots_ic_location.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_privacy_dots_ic_microphone.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/oui_rounded_corner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_rounded_corner_top.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_seekbar_tick_mark.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/oui_seekbarpref_button_bg.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_seekbarpref_button_bg_drawable.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_tipcard_button_bg.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/oui_tipcard_button_ripple.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/overlay_background.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/perm_group_location.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/perm_group_nearby_devices.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/permission_info_background.xml" value="0.112" />
+        <entry key="app/src/main/res/drawable/profile_donate.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/profile_github.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/profile_store.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/profile_telegram.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/profile_twitter.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/sec_ic_privacy_tips.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/sec_ic_settings_privacy.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/settings_open.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/stat_sys_privacy_camera.xml" value="0.209" />
+        <entry key="app/src/main/res/drawable/stat_sys_privacy_voicerecorder.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/ten_rounded_corner.xml" value="0.1638888888888889" />
+        <entry key="app/src/main/res/drawable/tick_mark.xml" value="0.209" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout-land/fragment_settings_exclude.xml" value="0.27028218694885364" />
+        <entry key="app/src/main/res/layout-land/oui_view_settings_privacy_dots_preview.xml" value="0.27028218694885364" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/activity_logs.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_main_old.xml" value="0.17083333333333334" />
+        <entry key="app/src/main/res/layout/activity_permission.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/activity_permission_detail.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_permission_usage.xml" value="0.146875" />
+        <entry key="app/src/main/res/layout/activity_settings_exclude.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/activity_settings_indicator.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_settings_notification.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/activity_settings_notification_old.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_settings_old.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_settings_switchbar.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dd.xml" value="0.18125" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/fragment_permission_tab.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/fragment_settings_exclude.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/napolee.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/object_logs.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/object_logs_header.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/oui_activity_permissions_layout.xml" value="0.2655935613682093" />
+        <entry key="app/src/main/res/layout/oui_dashboard_chart_container.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/oui_dashboard_chart_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/oui_dialog_permission_help_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/oui_dialog_permission_help_view.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_grid.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_list.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_list_footer.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_list_separator.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_widget_actionbutton.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_widget_checkbox.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_widget_radiobutton.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_app_picker_widget_switch.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layout_dashboard_chart_container.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/oui_layout_dashboard_footer.xml" value="0.14945652173913043" />
+        <entry key="app/src/main/res/layout/oui_layout_logs_header.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_layoutapp_picker_list_header.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_preference_alert_switch_layout.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/oui_preference_unclickable_layout.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/oui_view_cardview_icon_item_layout.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/oui_view_cardview_item_layout.xml" value="0.14945652173913043" />
+        <entry key="app/src/main/res/layout/oui_view_dashboard_chart_item.xml" value="0.15526849037487336" />
+        <entry key="app/src/main/res/layout/oui_view_dashboard_chart_item_layout.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/oui_view_permission_detail_item_layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/oui_view_permission_detail_timestamp_layout.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/oui_view_permission_tab_item.xml" value="0.14635416666666667" />
+        <entry key="app/src/main/res/layout/oui_view_permissioncardview_layout.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/oui_view_preference_alert_switch_layout.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/oui_view_preference_widget_seekbar.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/layout/oui_view_seekbar_preference_layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/oui_view_settings_privacy_dots_preview.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/layout/oui_view_splash_layout.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/oui_view_tipcard_layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/overlay_dot.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/ten_view_cardview_item_layout.xml" value="0.14635416666666667" />
+        <entry key="app/src/main/res/menu/logs_menu.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.14635416666666667" />
+        <entry key="app/src/main/res/menu/oui_dashboard_menu.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/menu/oui_detail_menu.xml" value="0.15208333333333332" />
+        <entry key="app/src/main/res/menu/oui_excluded_apps_menu.xml" value="0.14635416666666667" />
+        <entry key="app/src/main/res/menu/oui_permission_usage_menu.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.17314814814814813" />
+        <entry key="app/src/main/res/xml/oui_indicator_settings.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/xml/oui_notification_settings.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/xml/oui_settings.xml" value="0.14635416666666667" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
     <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />
@@ -49,5 +202,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.15526849037487336" />
+      </ProjectState>
+    </option>
   </component>
 </project>

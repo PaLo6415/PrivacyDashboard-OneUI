@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_item" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:importantForAccessibility="no" tools:viewBindingIgnore="false">
+    <View
+        android:id="@+id/detail_item_background" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_marginStart="30.0dip" android:layout_marginTop="10.0dip" app:layout_constraintStart_toEndOf="@id/detail_list_icon" app:layout_constraintTop_toBottomOf="@id/detail_month_date" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@id/detail_bottom_spacing" app:layout_goneMarginTop="0.0dip" app:layout_goneMarginBottom="20.0dip" android:background="@drawable/oui_permission_detail_item_bg_ripple" />
+
+    <View
+        android:id="@+id/detail_upper_line" android:layout_width="1.0dip" android:layout_height="0.0dip" app:layout_constraintStart_toStartOf="@id/detail_list_icon" app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="@id/detail_list_icon" app:layout_constraintBottom_toBottomOf="@id/detail_list_icon" android:background="#ffe3e3e3"/>
+    <View
+        android:id="@+id/detail_lower_line" android:layout_width="1.0dip" android:layout_height="0.0dip" app:layout_constraintStart_toStartOf="@id/detail_list_icon" app:layout_constraintTop_toTopOf="@id/detail_list_icon" app:layout_constraintEnd_toEndOf="@id/detail_list_icon" app:layout_constraintBottom_toBottomOf="parent" android:background="#ffe3e3e3" />
+
+    <ImageView
+        android:id="@+id/detail_list_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginStart="24.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/detail_item_name" app:layout_constraintBottom_toBottomOf="@id/detail_item_name"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/detail_month_date_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="detail_dotted_line,detail_month_date" />
+    <TextView
+        android:id="@+id/detail_month_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="29.0dip" android:layout_marginStart="24.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" android:gravity="center_vertical" android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ff909090" android:fontFamily="@string/sesl_font_family_regular" />
+    <ImageView
+        android:id="@+id/detail_dotted_line" android:layout_width="0.0dip" android:layout_height="2.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="24.0dip" app:layout_constraintStart_toEndOf="@id/detail_month_date" app:layout_constraintTop_toTopOf="@id/detail_month_date" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="@id/detail_month_date" android:src="@drawable/oui_dots_line" android:layerType="software" />
+
+    <TextView
+        android:id="@+id/detail_item_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="24.0dip" android:layout_marginStart="24.0dip" android:layout_marginTop="16.0dip" android:layout_marginEnd="24.0dip" app:layout_constraintStart_toStartOf="@id/detail_item_background" app:layout_constraintTop_toTopOf="@id/detail_item_background" app:layout_constraintEnd_toEndOf="parent" android:textSize="16.0sp" android:textColor="@color/sesl_primary_text_color"/>
+
+    <LinearLayout
+        android:id="@+id/detail_timestamp_list_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginEnd="24.0dip" android:paddingBottom="12.0dip" app:layout_constraintStart_toStartOf="@id/detail_item_name" app:layout_constraintTop_toBottomOf="@id/detail_item_name" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@id/detail_bottom_spacing" app:layout_goneMarginBottom="20.0dip" android:orientation="vertical" />
+
+    <View
+        android:id="@+id/detail_bottom_spacing" android:layout_width="fill_parent" android:layout_height="20.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
